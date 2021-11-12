@@ -16,7 +16,7 @@ const useFirebase=()=>{
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {        
-                // saveUser(email,name,'POST');
+                saveUser(email,name,'POST');
                 const user = userCredential.user;
                 setError('');
                 const newUser = { email, displayName: name };
@@ -26,6 +26,7 @@ const useFirebase=()=>{
                     displayName: name
                 }).then(() => {
                 }).catch((error) => {
+                    setError(error.message);
                 });
 
                 history.replace('/');
@@ -60,7 +61,7 @@ const useFirebase=()=>{
             .then((result) => {                        
                 const user = result.user;
                 console.log(user);
-                // saveUser(user.email,user.displayName,'PUT');
+                saveUser(user.email,user.displayName,'PUT');
                 setError('');
                 const destination = location?.state.from || '/';
                 history.replace(destination);
@@ -82,6 +83,19 @@ const useFirebase=()=>{
         });
         return () => unsubscribe;
     }, []);
+
+    const saveUser=(email,displayName,method)=>{
+        const user={email,displayName};
+        fetch('http://localhost:5000/users',{
+            method:method,
+            headers:{
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data));
+    }
     const logout = () => {
         setIsLoading(true);
         signOut(auth).then(() => {
