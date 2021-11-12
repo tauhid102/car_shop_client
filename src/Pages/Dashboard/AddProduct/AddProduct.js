@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
-
+import picture from '../../../images/addproduct.jpg';
 const AddProduct = () => {
     const [addProduct, setAddProduct] = useState({});
     const [confirm, setConfirm] = useState(false);
@@ -31,6 +31,7 @@ const AddProduct = () => {
             .then(data => {
                 if (data.acknowledged) {
                     setConfirm(true);
+                    document.getElementById("create-course-form").reset();
                 }
             })
     }
@@ -41,8 +42,8 @@ const AddProduct = () => {
         <div className="container">
                 <div className="row row-cols-1 row-cols-sm-2">
                     <div className="col">
-                        <h3 className='mt-5'>Please Provide Information For Add <span className='text-danger'>Car</span></h3>
-                        <form className="row g-3 w-100 inputFrom mt-2" onSubmit={handleAddProduct}>
+                        <h3 className='mt-5'>Please Provide<span className='text-danger'> Information </span>For Add <span className='text-danger'>Car</span></h3>
+                        <form className="row g-3 w-100 inputFrom mt-2" id="create-course-form" onSubmit={handleAddProduct}>
                             <div className="col-12">
                                 <label for="inputAddress" className="form-label">Car Name or Model</label>
                                 <input type="text" name='name' onBlur={handleOnBlur} className="form-control" id="inputAddress"/>
@@ -70,6 +71,9 @@ const AddProduct = () => {
                         </form>
                         
                     </div>
+                    <div className="col picutre">
+                    <img src={picture} alt="" />
+                </div>
                 </div>
             </div>
     );

@@ -28,7 +28,7 @@ const ManageProduct = () => {
     }
     return (
         <div>
-            <h3>Manage Order</h3>
+            <h3 className='mt-5 mb-3'>Manage Product and <span className='text-danger'>Remove</span></h3>
             <div className="table-responsive-sm">
                 <table class="table table-success table-striped">
                     <thead>

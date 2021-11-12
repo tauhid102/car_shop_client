@@ -14,7 +14,6 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Nav.Link as={Link} to="/home">Home</Nav.Link>
                             <Nav.Link as={Link} to="/carbazar">Car Bazar</Nav.Link>
-                            <Nav.Link as={Link} to="/addservices">Add Services</Nav.Link>
                             {
                                 user?.email && <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
                             }
@@ -28,11 +27,6 @@ const Header = () => {
                         <Navbar.Text className="me-2">
                             {user?.displayName}
                         </Navbar.Text>
-                        <Row>
-                            <Col xs={6} md={4}>
-                                <Image className='image' src='' roundedCircle />
-                            </Col>
-                        </Row>
                     </Navbar.Collapse>
                 </Container>
 

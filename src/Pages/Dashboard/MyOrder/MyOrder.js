@@ -9,7 +9,7 @@ const MyOrder = () => {
             .then(res => res.json())
             .then(data => setOrder(data))
     }, []);
-    const handleCancenOrder=(id)=>{
+    const handleCancenOrder = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
             const url = `http://localhost:5000/purchased/${id}`;
@@ -28,35 +28,37 @@ const MyOrder = () => {
     }
     return (
         <div>
-            <h3>My Order</h3>
-            <table class="table table-success table-striped table-responsive-sm">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Purchased</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Cancel Order</th>
-                    </tr>
-                </thead>
-                {
-                    orders.map(order => <>
-                        <tbody>
-                            <tr>
-                                <th scope="row">{user?.displayName}</th>
-                                <td>{order.itemName}</td>
-                                <td>${order.itemPrice}</td>
-                                <td>{order.phone}</td>
-                                <td>{order.status}</td>
-                                <td> <button onClick={() => handleCancenOrder(order._id)} className="btn btn-danger b-0">Cancel</button></td>
-                                
-                            </tr>
-                        </tbody>
+            <h3 className='mt-5 mb-3'>My <span className='text-danger'> Order</span></h3>
+            <div className="table-responsive-sm">
+                <table class="table table-success table-striped table-responsive-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Purchased</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Cancel Order</th>
+                        </tr>
+                    </thead>
+                    {
+                        orders.map(order => <>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">{user?.displayName}</th>
+                                    <td>{order.itemName}</td>
+                                    <td>${order.itemPrice}</td>
+                                    <td>{order.phone}</td>
+                                    <td>{order.status}</td>
+                                    <td> <button onClick={() => handleCancenOrder(order._id)} className="btn btn-danger b-0">Cancel</button></td>
 
-                    </>)
-                }
-            </table>
+                                </tr>
+                            </tbody>
+
+                        </>)
+                    }
+                </table>
+            </div>
         </div>
     );
 };

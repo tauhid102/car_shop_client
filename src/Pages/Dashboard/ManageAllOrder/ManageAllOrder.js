@@ -54,7 +54,7 @@ const ManageAllOrder = () => {
 
     return (
         <div>
-            <h3>Manage Order</h3>
+            <h3 className='mt-5 mb-3'>Manage Order and <span className='text-danger'>Confirmed</span></h3>
             <div className="table-responsive-sm">
                 <table class="table table-success table-striped">
                     <thead>
@@ -73,13 +73,13 @@ const ManageAllOrder = () => {
 
                             <tbody>
                                 <tr>
-                                    <th scope="row">{user?.displayName}</th>
+                                    <th scope="row">{order.name}</th>
                                     <td>{order.itemName}</td>
                                     <td>${order.itemPrice}</td>
                                     <td>{order.phone}</td>
                                     <td>{order.status}</td>
                                     <td> <button onClick={() => handleCancenOrder(order._id)} className="btn btn-danger b-0">Cancel</button></td>
-                                    <td> <button onClick={() => handleAcceptOrder(order._id)} className="btn btn-danger b-0">Accept</button></td>
+                                    <td> <button onClick={() => handleAcceptOrder(order._id)} className="btn btn-info b-0">Accept</button></td>
 
                                 </tr>
                             </tbody>

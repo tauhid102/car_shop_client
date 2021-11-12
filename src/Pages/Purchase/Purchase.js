@@ -48,6 +48,7 @@ const Purchase = () => {
             .then(data => {
                 if (data.acknowledged) {
                     setConfirm(true);
+                    document.getElementById("create-course-form").reset();
                 }
             })
     }
@@ -68,7 +69,7 @@ const Purchase = () => {
                     </div>
                     <div className="col">
                         <h3>Fill the Form for Confirmed<span className='text-danger'> Purchase</span></h3>
-                        <form className="row g-3 w-100 inputFrom mt-2" onSubmit={handleInfo}>
+                        <form className="row g-3 w-100 inputFrom mt-2" id="create-course-form" onSubmit={handleInfo}>
                             <div className="col-12">
                                 <label for="inputAddress" className="form-label">Name</label>
                                 <input type="text" defaultValue={user.displayName} name='name' onBlur={handleOnBlur} className="form-control" id="inputAddress" />

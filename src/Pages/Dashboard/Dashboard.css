@@ -1,0 +1,7 @@
+.dashboard{
+    width: 98%;
+    margin: auto;
+}
+.link Nav.Link:hover{
+    color: brown;
+}
