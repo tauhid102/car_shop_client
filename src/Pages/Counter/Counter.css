@@ -1,0 +1,17 @@
+.counter-background{
+    background-image: url("../../images/counter.jpg");
+    background-repeat: no-repeat;
+    background-position: fixed;
+    /* background-size: 100% 400px; */
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 50px 0;
+}
+.text{
+    color: white;
+    padding: 100px 0;
+    background-color: rgba(0, 0, 0, 0.726);
+}
+.text h1{
+    font-weight: 900;
+}
