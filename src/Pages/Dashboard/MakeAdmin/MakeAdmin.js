@@ -3,29 +3,32 @@ import React, { useState } from 'react';
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
-    
+
     const handleOnBlur = e => {
         setEmail(e.target.value);
+        e.target.value='';
     }
     const handleMakeAdmin = e => {
+        const proceed = window.confirm('Are you sure, you want to delete?');
         const user = { email }
-        fetch('http://localhost:5000/users/admin', {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount) {
-                    console.log(data);
-                    setEmail('');
-                    setSuccess(true);
-                }
-
+        if (proceed) {
+            fetch('http://localhost:5000/users/admin', {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
             })
-        e.preventDefault();
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount) {
+                        setEmail('');
+                        setSuccess(true);
+                    }
+
+                })
+            e.preventDefault();
+        }
     }
     return (
         <div>
@@ -37,13 +40,13 @@ const MakeAdmin = () => {
                         <input type="email" name="email" onBlur={handleOnBlur} className="form-control w-50" id="inputEmail4" />
                     </div>
                     <div className="col-12">
-                        <button type="submit" className="btn btn-dark">Sign in</button>
+                        <button type="submit" className="btn btn-dark">Make Admin</button>
                     </div>
                     {
-                                success && <div className="alert alert-success w-50" role="alert">
-                                    Make Admin Successfully
-                                </div>
-                            }
+                        success && <div className="alert alert-success w-50" role="alert">
+                            Make Admin Successfully
+                        </div>
+                    }
                 </form>
             </div>
         </div>

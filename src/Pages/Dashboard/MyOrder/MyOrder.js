@@ -28,7 +28,8 @@ const MyOrder = () => {
     }
     return (
         <div>
-            <table class="table table-success table-striped">
+            <h3>My Order</h3>
+            <table class="table table-success table-striped table-responsive-sm">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -36,7 +37,7 @@ const MyOrder = () => {
                         <th scope="col">Price</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Cancel Booking</th>
+                        <th scope="col">Cancel Order</th>
                     </tr>
                 </thead>
                 {
@@ -48,7 +49,7 @@ const MyOrder = () => {
                                 <td>${order.itemPrice}</td>
                                 <td>{order.phone}</td>
                                 <td>{order.status}</td>
-                                <td> <button onClick={() => handleCancenOrder(order._id)} className="btn btn-danger b-0">Cancel Booking</button></td>
+                                <td> <button onClick={() => handleCancenOrder(order._id)} className="btn btn-danger b-0">Cancel</button></td>
                                 
                             </tr>
                         </tbody>

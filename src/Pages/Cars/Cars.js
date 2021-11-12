@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Car from '../Car/Car';
+import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
 import './Cars.css';
 const Cars = () => {
@@ -31,6 +32,7 @@ const Cars = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </>
     );
 };

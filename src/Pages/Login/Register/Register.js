@@ -28,7 +28,7 @@ const Register = () => {
                 <div className="row row-cols-1 row-cols-sm-2">
                     <div className="col">
                         <h3 className='mt-5'>New To Shop BD? <span className='text-danger'>Register</span></h3>
-                        <form className="row g-3 w-100 inputFrom mt-2" onClick={handleRegister}>
+                        <form className="row g-3 w-100 inputFrom mt-2" onSubmit={handleRegister}>
                             <div className="col-12">
                                 <label for="inputAddress" className="form-label">Name</label>
                                 <input type="text" name='name' onBlur={handleOnBlur} className="form-control" id="inputAddress"/>

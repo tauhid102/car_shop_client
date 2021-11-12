@@ -3,9 +3,10 @@
     height: 400px;
     background-image: url("../../images/p1.png");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: fixed;
     background-size: 100% 400px;
     text-align: center;  
+    background-attachment: fixed;
      
 }
 h2{
