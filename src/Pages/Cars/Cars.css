@@ -1,0 +1,17 @@
+.purchasePhoto{
+    width: 100%;
+    height: 400px;
+    background-image: url("../../images/p1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 400px;
+    text-align: center;  
+     
+}
+h2{
+    padding-top: 150px;
+    padding-bottom: 210px;
+    margin-bottom: 200px;
+    color:rgb(246, 238, 238);
+    background-color: rgba(0, 0, 0, 0.678);
+}

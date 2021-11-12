@@ -1,0 +1,7 @@
+.banner img{
+    height: 560px;
+}
+.banner-title{
+    background-color: rgba(0, 0, 0, 0.609);
+    border-radius: 5px;
+}
