@@ -35,6 +35,7 @@ const ManageProduct = () => {
                         <tr>
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
+                            <th scope="col">Picture</th>
                             <th scope="col">Details</th>
                             <th scope="col">Remove Product</th>
                         </tr>
@@ -46,6 +47,7 @@ const ManageProduct = () => {
                                 <tr>
                                     <td>{product.name}</td>
                                     <td>${product.price}</td>
+                                    <td><img src={product.img} alt="" style={{width:'100px'}} srcset="" /></td>
                                     <td>{product.details}</td>
                                     <td> <button onClick={() => handleDeleteProduct(product._id)} className="btn btn-danger b-0">Remove</button></td>
 

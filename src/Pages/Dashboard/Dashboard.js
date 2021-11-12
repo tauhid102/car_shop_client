@@ -11,6 +11,7 @@ import MyOrder from './MyOrder/MyOrder';
 import Pay from './Pay/Pay';
 import Review from './Review/Review';
 import './Dashboard.css';
+import ManageReview from './ManageReview/ManageReview';
 
 const Dashboard = () => {
     const { user, logout, admin } = useAuth();
@@ -36,7 +37,7 @@ const Dashboard = () => {
 
                 </Navbar>
             </div>
-            <div className='dashboard'>
+            <div className='container-fluid'>
                 <div className='row'>
                     <div className='col-sm-12 col-lg-2'>
                         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -54,6 +55,7 @@ const Dashboard = () => {
 
                                                 <Nav.Link className='border-bottom' as={Link} to={`${url}/manageorder`}>Manage All Order</Nav.Link>
                                                 <Nav.Link className='border-bottom' as={Link} to={`${url}/manageproduct`}>Manage Product</Nav.Link>
+                                                <Nav.Link className='border-bottom' as={Link} to={`${url}/managereview`}>Manage Review</Nav.Link>
                                                 <Nav.Link className='border-bottom' as={Link} to={`${url}/addproduct`}>Add Product</Nav.Link>
                                                 <Nav.Link className='border-bottom' as={Link} to={`${url}/makeadmin`}>Make Admin</Nav.Link>
                                             </div>
@@ -96,6 +98,9 @@ const Dashboard = () => {
                             </AdminRoute>
                             <AdminRoute path={`${url}/manageproduct`}>
                                 <ManageProduct></ManageProduct>
+                            </AdminRoute>
+                            <AdminRoute path={`${url}/managereview`}>
+                                <ManageReview></ManageReview>
                             </AdminRoute>
                             <AdminRoute path={`${url}/addproduct`}>
                                 <AddProduct></AddProduct>
