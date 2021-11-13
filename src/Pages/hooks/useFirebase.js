@@ -89,7 +89,9 @@ const useFirebase=()=>{
         .then(res=>res.json())
         .then(data=>{
             setAdmin(data.admin);
-            localStorage.setItem("state", true);
+            if (data.admin) {
+                localStorage.setItem("admin", true);
+              }
         })
     },[user.email])
 
