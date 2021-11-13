@@ -12,6 +12,7 @@ import Purchase from './Pages/Purchase/Purchase';
 import Cars from './Pages/Cars/Cars';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import LoginHome from './Pages/Login/LoginHome/LoginHome';
+import PagenotFound from './Pages/PagenotFound/PagenotFound';
 function App() {
   return (
     <div className="">
@@ -38,7 +39,10 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path='/dashboard'>
               <Dashboard></Dashboard>
-            </PrivateRoute>
+            </PrivateRoute>           
+            <Route path='*'>
+              <PagenotFound></PagenotFound>
+            </Route>
           </Switch>
         </Router>
       </AuthProvider>

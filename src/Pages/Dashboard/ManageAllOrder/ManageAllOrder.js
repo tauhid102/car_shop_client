@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../hooks/useAuth';
 
 const ManageAllOrder = () => {
     const [orders, setOrder] = useState([]);
-    const { user } = useAuth();
     const [accepted, setAccepted] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/purchased/allorder')
+        fetch('https://fathomless-cliffs-39338.herokuapp.com/purchased/allorder')
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [accepted]);
@@ -15,7 +13,7 @@ const ManageAllOrder = () => {
     const handleCancenOrder = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/purchased/${id}`;
+            const url = `https://fathomless-cliffs-39338.herokuapp.com/purchased/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -33,7 +31,7 @@ const ManageAllOrder = () => {
         const ids = { id };
         const proceed = window.confirm('Are you sure, you want to accepted?');
         if (proceed) {
-            const url = `http://localhost:5000/purchased/${id}`;
+            const url = `https://fathomless-cliffs-39338.herokuapp.com/purchased/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

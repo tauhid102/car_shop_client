@@ -14,11 +14,11 @@ const Purchase = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/services/${purchaseId}`;
+        const url = `https://fathomless-cliffs-39338.herokuapp.com/services/${purchaseId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setPurchase(data));
-    }, []);
+    }, [purchaseId]);
 
     const handleOnBlur = e => {
         const field = e.target.name;
@@ -37,7 +37,7 @@ const Purchase = () => {
             itemName:purchase.name,
             itemPrice:purchase.price
         }
-        fetch('http://localhost:5000/purchased', {
+        fetch('https://fathomless-cliffs-39338.herokuapp.com/purchased', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

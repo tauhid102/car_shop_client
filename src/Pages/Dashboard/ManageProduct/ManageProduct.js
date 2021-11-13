@@ -4,7 +4,7 @@ const ManageProduct = () => {
     const [products,setProduct]=useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://fathomless-cliffs-39338.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, []);
@@ -12,7 +12,7 @@ const ManageProduct = () => {
     const handleDeleteProduct=(id)=>{
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/services/${id}`;
+            const url = `https://fathomless-cliffs-39338.herokuapp.com/services/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

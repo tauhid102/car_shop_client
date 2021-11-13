@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import Header from '../../Shared/Header/Header';
 import picture from '../../../images/login.jpg';
 const Login = () => {
     const { googleSignIn, loginUser } = useAuth();

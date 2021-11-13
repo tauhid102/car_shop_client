@@ -6,7 +6,7 @@ import { Card } from 'react-bootstrap';
 const ShowReview = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://fathomless-cliffs-39338.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data));
     }, [])

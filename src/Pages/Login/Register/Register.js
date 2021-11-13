@@ -5,7 +5,7 @@ import picture from '../../../images/login.jpg';
 import './Register.css';
 const Register = () => {
     const [registerData, setRegisterData] = useState({});
-    const { user, registerUser, isLoading, authError } = useAuth();
+    const { registerUser, authError } = useAuth();
     const history = useHistory()
 
     const handleOnBlur = (e) => {

@@ -17,7 +17,7 @@ const useFirebase=()=>{
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {        
                 saveUser(email,name,'POST');
-                const user = userCredential.user;
+                // const user = userCredential.user;
                 setError('');
                 const newUser = { email, displayName: name };
                 setUser(newUser);
@@ -45,7 +45,7 @@ const useFirebase=()=>{
                 // Signed in 
                 const destination = location?.state.from || '/home';
                 history.replace(destination);             
-                const user = userCredential.user;
+                // const user = userCredential.user;
                 setError('');
             })
             .catch((error) => {
@@ -82,10 +82,10 @@ const useFirebase=()=>{
             setIsLoading(false)
         });
         return () => unsubscribe;
-    }, []);
+    }, [auth]);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://fathomless-cliffs-39338.herokuapp.com/users/${user.email}`)
         .then(res=>res.json())
         .then(data=>setAdmin(data.admin))
     },[user.email])
@@ -93,7 +93,7 @@ const useFirebase=()=>{
 
     const saveUser=(email,displayName,method)=>{
         const user={email,displayName};
-        fetch('http://localhost:5000/users',{
+        fetch('https://fathomless-cliffs-39338.herokuapp.com/users',{
             method:method,
             headers:{
                 'content-type':'application/json'

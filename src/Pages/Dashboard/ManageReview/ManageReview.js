@@ -4,7 +4,7 @@ const ManageReview = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://fathomless-cliffs-39338.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, []);
@@ -12,7 +12,7 @@ const ManageReview = () => {
     const handleDeleteReview = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/reviews/${id}`;
+            const url = `https://fathomless-cliffs-39338.herokuapp.com/reviews/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

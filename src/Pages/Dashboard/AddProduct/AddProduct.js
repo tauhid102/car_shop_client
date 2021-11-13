@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import useAuth from '../../hooks/useAuth';
+// import useAuth from '../../hooks/useAuth';
 import picture from '../../../images/addproduct.jpg';
 const AddProduct = () => {
     const [addProduct, setAddProduct] = useState({});
     const [confirm, setConfirm] = useState(false);
-    const { user, registerUser, isLoading, authError } = useAuth();
+    // const { user, registerUser, isLoading, authError } = useAuth();
 
 
 
@@ -20,7 +20,7 @@ const AddProduct = () => {
         const product = {
             ...addProduct
         }
-        fetch('http://localhost:5000/services', {
+        fetch('http://https://fathomless-cliffs-39338.herokuapp.com/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
