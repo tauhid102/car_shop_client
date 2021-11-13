@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../hooks/useAuth';
 
 const ManageAllOrder = () => {
     const [orders, setOrder] = useState([]);
     const [accepted, setAccepted] = useState(true);
-    const {setIsLoading,isLoading}=useAuth();
     useEffect(() => {
         fetch('https://fathomless-cliffs-39338.herokuapp.com/purchased/allorder')
             .then(res => res.json())
             .then(data => {
                 setOrder(data);
-                setIsLoading(false);
             })
     }, [accepted]);
 
@@ -28,7 +25,6 @@ const ManageAllOrder = () => {
                         alert('Cancel Successfully');
                         const restBooking = orders.filter(order => order._id !== id);
                         setOrder(restBooking);
-                        setIsLoading(false)
                     }
                 })
         }
@@ -50,19 +46,10 @@ const ManageAllOrder = () => {
                     if (result.modifiedCount > 0) {
                         alert('Accepted Successfully');
                         setAccepted(false);
-                        setIsLoading(false);
                     }
                 })
         }
     }
-    if (isLoading) {
-        return <div class="d-flex justify-content-center">
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
-    }
-
     return (
         <div>
             <h3 className='mt-5 mb-3'>Manage Order and <span className='text-danger'>Confirmed</span></h3>

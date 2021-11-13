@@ -5,7 +5,7 @@ import picture from '../../../images/login.jpg';
 import './Register.css';
 const Register = () => {
     const [registerData, setRegisterData] = useState({});
-    const { registerUser, authError } = useAuth();
+    const { registerUser, authError,error } = useAuth();
     const history = useHistory()
 
     const handleOnBlur = (e) => {
@@ -30,7 +30,7 @@ const Register = () => {
                         <form className="row g-3 w-100 inputFrom mt-2" onSubmit={handleRegister}>
                             <div className="col-12">
                                 <label for="inputAddress" className="form-label">Name</label>
-                                <input type="text" name='name' onBlur={handleOnBlur} className="form-control" id="inputAddress"/>
+                                <input type="text" name='name' onBlur={handleOnBlur} className="form-control border-bottom" id="inputAddress"/>
                             </div>
                             <div className="col-12">
                                 <label for="inputEmail4" className="form-label">Email</label>
@@ -40,6 +40,11 @@ const Register = () => {
                                 <label for="inputPassword4" className="form-label">Password</label>
                                 <input type="password" name='password' onBlur={handleOnBlur} className="form-control" id="inputPassword4" />
                             </div>
+                            {
+                                    error && <div class="alert alert-danger" role="alert">
+                                    {error}
+                                  </div>
+                                }
                             <p>Alrealdy Have An Account <Link to='/login'>Sign In</Link></p>
                             <div className="col-12">
                                 <button type="submit" className="btn btn-dark">Sign in</button>

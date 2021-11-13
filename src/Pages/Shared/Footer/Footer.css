@@ -4,3 +4,23 @@
     padding: 50px 0;
     margin-top: 20px;
 }
+.footerIcon li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+.footerIcon li i{
+    font-size: 30px;
+    color: white;
+    padding: 9px;
+    border: 1px solid #212529;
+    border-radius: 48%;
+}
+.footerIcon li i:hover{
+    border: 1px solid white;
+
+}
+.col-5 ul{
+   padding: 0;
+}
