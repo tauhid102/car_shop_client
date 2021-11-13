@@ -87,7 +87,10 @@ const useFirebase=()=>{
     useEffect(()=>{
         fetch(`https://fathomless-cliffs-39338.herokuapp.com/users/${user.email}`)
         .then(res=>res.json())
-        .then(data=>setAdmin(data.admin))
+        .then(data=>{
+            setAdmin(data.admin)
+            setIsLoading(false)
+        })
     },[user.email])
 
 
@@ -101,7 +104,10 @@ const useFirebase=()=>{
             body: JSON.stringify(user)
         })
         .then(res=>res.json())
-        .then(data=>console.log(data));
+        .then(data=>{
+            console.log(data)
+            setIsLoading(false)
+        });
     }
     const logout = () => {
         setIsLoading(true);
@@ -115,7 +121,7 @@ const useFirebase=()=>{
             });
     }
     return {
-        user,admin, isLoading, error,
+        user,admin, isLoading, error,setIsLoading,
         registerUser,googleSignIn,
         logout,
         loginUser
