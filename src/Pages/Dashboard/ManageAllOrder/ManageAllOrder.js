@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Card, Col, Row } from 'react-bootstrap';
 
 const ManageAllOrder = () => {
     const [orders, setOrder] = useState([]);
@@ -53,40 +54,30 @@ const ManageAllOrder = () => {
     return (
         <div>
             <h3 className='mt-5 mb-3'>Manage Order and <span className='text-danger'>Confirmed</span></h3>
-            <div className="table-responsive-sm">
-                <table class="table table-success table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Purchased</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Cancel Order</th>
-                            <th scope="col">Accept Order</th>
-                        </tr>
-                    </thead>
-                    {
-                        orders.map(order => <>
-
-                            <tbody>
-                                <tr>
-                                    <th scope="row">{order.name}</th>
-                                    <td>{order.itemName}</td>
-                                    <td>${order.itemPrice}</td>
-                                    <td>{order.phone}</td>
-                                    <td>{order.status}</td>
-                                    <td> <button onClick={() => handleCancenOrder(order._id)} className="btn btn-danger b-0">Cancel</button></td>
-                                    <td> <button onClick={() => handleAcceptOrder(order._id)} className="btn btn-info b-0">Accept</button></td>
-
-                                </tr>
-                            </tbody>
-
-                        </>)
-                    }
-                </table>
-            </div>
-
+            
+            <Row xs={1} md={2} lg={4} className="g-4">
+                {orders.map(order => <>
+                    <Col>
+                        <Card border="secondary" style={{ width: '16rem' }}>
+                            <Card.Header>Buyer:{order.name}</Card.Header>
+                            <Card.Body>
+                                <Card.Text>
+                                    Car: {order.itemName}
+                                </Card.Text>
+                                <Card.Text>
+                                   Price: ${order.itemPrice}
+                                </Card.Text>
+                                <Card.Text>
+                                   Status: {order.status}
+                                </Card.Text>
+                            </Card.Body>
+                            <Card.Footer>Phone: {order.phone}</Card.Footer>
+                            <button onClick={() => handleCancenOrder(order._id)} className="btn btn-danger b-0">Cancel Order</button>
+                            <button onClick={() => handleAcceptOrder(order._id)} className="btn btn-info mt-2 b-0">Accept Order</button>
+                        </Card>
+                    </Col>
+                </>)}
+            </Row>
         </div>
     );
 };

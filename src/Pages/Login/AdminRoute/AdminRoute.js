@@ -3,7 +3,8 @@ import useAuth from '../../hooks/useAuth';
 import { Route, Redirect } from 'react-router-dom';
 
 const AdminRoute = ({children,...rest}) => {
-    const { user, isLoading,admin } = useAuth();
+    const { user, isLoading} = useAuth();
+    const states = localStorage.getItem("state");
     if (isLoading) {
         return <div class="d-flex justify-content-center">
             <div class="spinner-border" role="status">
@@ -15,7 +16,7 @@ const AdminRoute = ({children,...rest}) => {
         <Route
             {...rest}
             render={({ location }) =>
-                user.email && admin? (
+                user.email && states? (
                     children
                 ) : (
                     <Redirect

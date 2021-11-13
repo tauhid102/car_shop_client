@@ -49,6 +49,7 @@ const Purchase = () => {
                 if (data.acknowledged) {
                     setConfirm(true);
                     document.getElementById("create-course-form").reset();
+                    alert('Order Placed Successfully');
                 }
             })
     }

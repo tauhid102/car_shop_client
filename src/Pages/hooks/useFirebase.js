@@ -88,8 +88,8 @@ const useFirebase=()=>{
         fetch(`https://fathomless-cliffs-39338.herokuapp.com/users/${user.email}`)
         .then(res=>res.json())
         .then(data=>{
-            setAdmin(data.admin)
-            setIsLoading(false)
+            setAdmin(data.admin);
+            localStorage.setItem("state", true);
         })
     },[user.email])
 
@@ -113,6 +113,7 @@ const useFirebase=()=>{
         setIsLoading(true);
         signOut(auth).then(() => {
             // Sign-out successful.
+            localStorage.removeItem("state");
         }).catch((error) => {
             // An error happened.
         })

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Card, Col, Row } from 'react-bootstrap';
 
 const ManageProduct = () => {
     const [products,setProduct]=useState([]);
@@ -29,36 +30,28 @@ const ManageProduct = () => {
     return (
         <div>
             <h3 className='mt-5 mb-3'>Manage Product and <span className='text-danger'>Remove</span></h3>
-            <div className="table-responsive-sm">
-                <table class="table table-success table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Picture</th>
-                            <th scope="col">Details</th>
-                            <th scope="col">Remove Product</th>
-                        </tr>
-                    </thead>
-                    {
-                        products.map(product => <>
-
-                            <tbody>
-                                <tr>
-                                    <td>{product.name}</td>
-                                    <td>${product.price}</td>
-                                    <td><img src={product.img} alt="" style={{width:'100px'}} srcset="" /></td>
-                                    <td>{product.details}</td>
-                                    <td> <button onClick={() => handleDeleteProduct(product._id)} className="btn btn-danger b-0">Remove</button></td>
-
-                                </tr>
-                            </tbody>
-
-                        </>)
-                    }
-                </table>
-            </div>
-
+            <Row xs={1} md={2} lg={4} className="g-4">
+                {products.map(product => <>
+                    <Col>
+                        <Card border="secondary" style={{ width: '16rem' }}>
+                            <Card.Header><h6>Car Name:</h6> {product.name}</Card.Header>
+                            <Card.Body>
+                                <Card.Text>
+                                    <span className='text-bold'>Details:</span> {product.details}
+                                </Card.Text>
+                                <Card.Text>
+                                   Price: ${product.price}
+                                </Card.Text>
+                                <Card.Text>
+                                <img src={product.img} alt="" style={{width:'100px'}} srcset="" />
+                                </Card.Text>
+                            </Card.Body>
+                            <button onClick={() => handleDeleteProduct(product._id)} className="btn btn-danger b-0">Delete Product</button>
+                        </Card>
+                    </Col>
+                </>)}
+            </Row>
+            {/* <img src={product.img} alt="" style={{width:'100px'}} srcset="" /> */}
         </div>
     );
 };

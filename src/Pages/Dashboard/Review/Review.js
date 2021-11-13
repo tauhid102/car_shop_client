@@ -41,12 +41,8 @@ const Review = () => {
                             <input type="text" name='name' onBlur={handleOnBlur} className="form-control" id="inputAddress" />
                         </div>
                         <div className="col-12">
-                            <label for="inputEmail4" className="form-label">Your Email</label>
-                            <input type="email" name='email' onBlur={handleOnBlur} className="form-control" id="inputEmail4" />
-                        </div>
-                        <div className="col-12">
                             <label for="inputPassword4" className="form-label">Comment</label>
-                            <input type="text" name='comment' onBlur={handleOnBlur} className="form-control" id="inputPassword4" />
+                            <textarea type="text" name='comment' onBlur={handleOnBlur} className="form-control" id="inputPassword4" />
                         </div>
                         <div className="col-12">
                             <label for="inputPassword4" className="form-label">Rating out of 1 to 5</label>

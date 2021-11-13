@@ -54,7 +54,7 @@ const AddProduct = () => {
                             </div>
                             <div className="col-12">
                                 <label for="inputPassword4" className="form-label">Details</label>
-                                <input type="text" name='details' onBlur={handleOnBlur} className="form-control" id="inputPassword4" />
+                                <textarea type="text" name='details' onBlur={handleOnBlur} className="form-control" id="inputPassword4" />
                             </div>
                             <div className="col-12">
                                 <label for="inputPassword4" className="form-label">Image Url</label>

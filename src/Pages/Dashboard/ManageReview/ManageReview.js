@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Card, Col, Row } from 'react-bootstrap';
 
 const ManageReview = () => {
     const [reviews, setReviews] = useState([]);
@@ -29,35 +30,24 @@ const ManageReview = () => {
     return (
         <div>
             <h3 className='mt-5 mb-3'>Manage Customer <span className='text-danger'>Review</span></h3>
-            <div className="table-responsive-sm">
-                <table className="table table-success table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Comment</th>
-                            <th scope="col">Rating</th>
-                            <th scope="col">Remove Review</th>
-                        </tr>
-                    </thead>
-                    {
-                        reviews.map(review => <>
-
-                            <tbody>
-                                <tr>
-                                    <td>{review.name}</td>
-                                    <td>{review.email}</td>
-                                    <td>{review.comment}</td>
-                                    <td>{review.rating}</td>
-                                    <td> <button onClick={() => handleDeleteReview(review._id)} className="btn btn-danger b-0">Remove</button></td>
-
-                                </tr>
-                            </tbody>
-
-                        </>)
-                    }
-                </table>
-            </div>
+            <Row xs={1} md={2} lg={3} className="g-4">
+                {reviews.map(review => <>
+                    <Col>
+                        <Card border="secondary" style={{ width: '18rem' }}>
+                            <Card.Header>Reviewer: {review.name}</Card.Header>
+                            <Card.Body>
+                                <Card.Text>
+                                    Comment: {review.comment}
+                                </Card.Text>
+                                <Card.Text>
+                                    Rating: {review.rating}
+                                </Card.Text>
+                            </Card.Body>
+                            <button onClick={() => handleDeleteReview(review._id)} className="btn btn-danger b-0">Delete Review</button>
+                        </Card>
+                    </Col>
+                </>)}
+            </Row>
 
         </div>
     );

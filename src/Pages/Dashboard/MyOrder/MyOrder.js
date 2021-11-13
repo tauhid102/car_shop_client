@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Card, Col, Row } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 
 const MyOrder = () => {
@@ -27,38 +28,29 @@ const MyOrder = () => {
         }
     }
     return (
-        <div>
+        <div className='container-fluid'>
             <h3 className='mt-5 mb-3'>My <span className='text-danger'> Order</span></h3>
-            <div className="table-responsive-sm">
-                <table class="table table-success table-striped table-responsive-sm">
-                    <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Purchased</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Cancel Order</th>
-                        </tr>
-                    </thead>
-                    {
-                        orders.map(order => <>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">{user?.displayName}</th>
-                                    <td>{order.itemName}</td>
-                                    <td>${order.itemPrice}</td>
-                                    <td>{order.phone}</td>
-                                    <td>{order.status}</td>
-                                    <td> <button onClick={() => handleCancenOrder(order._id)} className="btn btn-danger b-0">Cancel</button></td>
-
-                                </tr>
-                            </tbody>
-
-                        </>)
-                    }
-                </table>
-            </div>
+            <Row xs={1} md={2} lg={4} className="g-4">
+                {orders.map(order => <>
+                    <Col>
+                        <Card border="secondary" style={{ width: '16rem' }}>
+                            <Card.Header><span>Buyer: </span> {order.name}</Card.Header>
+                            <Card.Body>
+                                <Card.Text>
+                                    <span className='text-bold'>Car:</span> {order.itemName}
+                                </Card.Text>
+                                <Card.Text>
+                                   Price: ${order.itemPrice}
+                                </Card.Text>
+                                <Card.Text>
+                                   Phone: {order.phone}
+                                </Card.Text>
+                            </Card.Body>
+                            <button onClick={() => handleCancenOrder(order._id)} className="btn btn-danger b-0">Cancel Order</button>
+                        </Card>
+                    </Col>
+                </>)}
+            </Row>
         </div>
     );
 };
